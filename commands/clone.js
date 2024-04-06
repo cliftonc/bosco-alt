@@ -165,8 +165,13 @@ async function fetch(bosco, team, repos, repoRegex) {
   async function gitIgnoreRepos() {
     // Ensure repo folders are in workspace gitignore
     const gi = [bosco.getWorkspacePath(), '.gitignore'].join('/');
-    const contents = await fs.readFile(gi);
-    const ignore = (contents || '').toString().split('\n');
+    let contents = '';
+    try {
+      contents = await fs.readFile(gi);
+    } catch (ex) {
+      // No .gitignore
+    }
+    const ignore = (contents).toString().split('\n');
     const newIgnore = _.union(ignore, repos, ['.DS_Store', 'node_modules', '.bosco/bosco.json', '']);
     return fs.writeFile(gi, `${newIgnore.join('\n')}\n`);
   }
