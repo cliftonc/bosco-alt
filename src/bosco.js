@@ -359,24 +359,26 @@ class Bosco extends EventEmitter {
       next(null, cmdString.split(' '));
     }
 
-    async.series([
-      (next) => {
-        fs.readdir(cmdPath, (err, files) => {
-          showCommands(cmdPath, files, next);
-        });
+    async.series(
+      [
+        (next) => {
+          fs.readdir(cmdPath, (err, files) => {
+            showCommands(cmdPath, files, next);
+          });
+        },
+        (next) => {
+          fs.readdir(localPath, (err, files) => {
+            if (!files || files.length === 0) return next();
+            showCommands(localPath, files, next);
+          });
+        },
+      ],
+      (err, files) => {
+        const flatFiles = _.uniq(_.flatten(files));
+        this.console.log(`Available commands: ${flatFiles.join(' ')}`);
+        process.exit(0);
       },
-      (next) => {
-        fs.readdir(localPath, (err, files) => {
-          if (!files || files.length === 0) return next();
-          showCommands(localPath, files, next);
-        });
-      },
-    ],
-    (err, files) => {
-      const flatFiles = _.uniq(_.flatten(files));
-      this.console.log(`Available commands: ${flatFiles.join(' ')}`);
-      process.exit(0);
-    });
+    );
   }
 
   _checkVersion() {
