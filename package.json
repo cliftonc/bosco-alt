@@ -1,6 +1,6 @@
 {
   "name": "bosco-alt",
-  "version": "6.0.5",
+  "version": "6.0.6",
   "description": "Bosco will take care of your microservices, just don't try and use him on a plane.",
   "main": "index.js",
   "scripts": {
