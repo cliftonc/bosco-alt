@@ -88,13 +88,7 @@ async function cmd(bosco, args) {
       if (boscoService.service) {
         return stopService(repo, boscoService, runningServices);
       }
-    }, { concurrency: bosco.concurrency.network })
-      .then(() => {
-        // Special case for bosco-cdn, room for improvement to make this
-        // generic for all custom bosco services.
-        if (!_.includes(runningServices, 'bosco-cdn')) return;
-        return NodeRunner.stop({ name: 'bosco-cdn' });
-      });
+    }, { concurrency: bosco.concurrency.network });
   }
 
   async function getRunningServices() {

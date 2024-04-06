@@ -2,7 +2,6 @@ const _ = require('lodash');
 const Promise = require('bluebird');
 const fs = require('fs-extra');
 
-const cdn = require('./cdn');
 const RunListHelper = require('../src/RunListHelper');
 const NodeRunner = require('../src/RunWrappers/Node');
 const DockerRunner = require('../src/RunWrappers/Docker');
@@ -69,7 +68,7 @@ module.exports = {
   ],
 };
 
-async function cmd(bosco, args) {
+async function cmd(bosco) {
   const repoPattern = bosco.options.repo;
   const repoRegex = new RegExp(repoPattern);
   const watchPattern = bosco.options.watch || '$a';
@@ -238,9 +237,6 @@ async function cmd(bosco, args) {
     await disconnectRunners();
 
     bosco.log('All services started.');
-    if (!_.includes(args, 'cdn')) return;
-
-    return cdn.cmd(bosco, [], () => {});
   } catch (err) {
     bosco.error(err);
   }
