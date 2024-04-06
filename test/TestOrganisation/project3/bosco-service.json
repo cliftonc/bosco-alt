@@ -1,0 +1,37 @@
+{
+  "tags": [ "testy" , "besty" ],
+  "service": {
+    "name": "project3"
+  },
+  "build": {
+    "command": "echo 'This is the pseudo output of a build command.'",
+    "watch": {
+      "command": ["echo \"COMPLETA\"; sleep 1"],
+      "ready": "COMPLETA"
+    }
+  },
+  "assets": {
+    "basePath": "/dist",
+    "alreadyMinified": true,
+    "sourceMapExtension": ".map",
+    "js": {
+      "compiled": [
+        "js/compiled.js",
+        "js/compiled.js.map"
+      ]
+    },
+    "css": {
+      "compiled": [
+        "css/compiled.css"
+      ]
+    }
+  },
+  "files": {
+    "files-top": {
+      "basePath": "/dist",
+      "swf": [
+        "swf/flash.swf"
+      ]
+    }
+  }
+}

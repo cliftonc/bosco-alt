@@ -1,0 +1,29 @@
+{
+  "tags": [ "testy" , "besty" ],
+  "service": {
+    "name": "project3"
+  },
+  "build": {
+    "command": "echo blah; false"
+  },
+  "assets": {
+    "basePath": "/dist",
+    "js": {
+      "compiled": [
+        "js/compiled.js"
+      ]
+    },
+    "css": {
+      "compiled": [
+        "css/compiled.css"
+      ]
+    }
+  },
+  "files": {
+    "files-top": {
+      "swf": [
+        "flash.swf"
+      ]
+    }
+  }
+}

@@ -1,0 +1,101 @@
+.TH "BOSCO-RUN" "3" "December 2020" "" ""
+.SH "NAME"
+\fBbosco-run\fR - Run your services.
+.SH "SYNOPSIS"
+.P
+.RS 2
+.nf
+bosco run
+bosco run -r <repoPattern>
+bosco run -t <tag>
+.fi
+.RE
+.SH "DESCRIPTION"
+.P
+This command launches all of your services - either as Node processes via PM2, or as Docker images if specified in the \fBbosco-service.json\fR.
+.SS "Node Services"
+.P
+Node services are launched via PM2, via one of two mechanisms:
+.RS 0
+.IP \(bu 4
+If a \fBstart\fR command is specified in the \fBpackage.json\fR, then it will launch the service using this command.
+.IP \(bu 4
+If there is no start command in the \fBpackage.json\fR, but a \fBstart\fR command is specified in the \fBbosco-service.json\fR, then it will launch the service using this command.
+.RE 0
+
+.P
+For example, in \fBpackage.json\fR:
+.P
+.RS 2
+.nf
+{
+    "scripts": {
+        "start": "node cluster"
+    }
+}
+.fi
+.RE
+.P
+In \fBbosco-service.json\fR:
+.P
+.RS 2
+.nf
+{
+    "tags": \[lB]"review", "summary"\[rB],
+    "service": {
+        "type": "node",
+        "start": "node cluster"
+    }
+}
+.fi
+.RE
+.SS "Docker Services"
+.P
+Docker services are launched via Docker, and need the Docker configuration to be specified within the \fBbosco-service.json\fR file.
+.P
+For example, in \fBbosco-service.json\fR:
+.P
+.RS 2
+.nf
+{
+    "tags": \[lB]"review"\[rB],
+    "service": {
+        "type": "docker",
+        "name": "infra-mongodb",
+        "registry": "docker-registry.tescloud.com",
+        "username": "tescloud",
+        "version": "latest",
+        "ports": {
+            "27017/tcp": \[lB]{"HostPort": "27017"}\[rB],
+            "28017/tcp": \[lB]{"HostPort": "28017"}\[rB]
+        }
+    }
+}
+.fi
+.RE
+.SH "COMMAND LINE OPTIONS"
+.SS "-r, --repo"
+.RS 0
+.IP \(bu 4
+Default: .*
+.IP \(bu 4
+Type: String
+.RE 0
+
+.P
+This sets a regex string to use to filter the repostory list.
+.SS "-t, --tag"
+.P
+This sets a tag to use to filter the repostory list (as specified in \fBbosco-service.json\fR as above).
+.SS "-d, --deps-only"
+.P
+This only starts dependencies of the current service.
+.SH "SEE ALSO"
+.RS 0
+.IP \(bu 4
+bosco help stop
+.IP \(bu 4
+bosco help ps
+.IP \(bu 4
+bosco help tail
+.RE 0

@@ -1,0 +1,28 @@
+.TH "BOSCO-EXEC" "3" "December 2020" "" ""
+.SH "NAME"
+\fBbosco-exec\fR - Run arbitrary commands across all repos
+.SH "SYNOPSIS"
+.P
+.RS 2
+.nf
+bosco exec -- <command>
+bosco exec -r <repoPattern> -- <command>
+.fi
+.RE
+.SH "DESCRIPTION"
+.P
+This command allows you to run any arbitrary command across all repositories.
+.P
+For example, 'bosco exec -- git status'.
+.SH "COMMAND LINE OPTIONS"
+.SS "-r, --repo"
+.RS 0
+.IP \(bu 4
+Default: .*
+.IP \(bu 4
+Type: String
+.RE 0
+
+.P
+This sets a regex string to use to filter the repostory list.
+.SH "SEE ALSO"

@@ -1,0 +1,117 @@
+{
+  "name": "bosco-alt",
+  "version": "6.0.3",
+  "description": "Bosco will take care of your microservices, just don't try and use him on a plane.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "nyc mocha",
+    "compile-help": "node ./compile-help.js",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test",
+      "pre-push": "npm audit"
+    }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "engines": {
+    "node": ">= 20",
+    "npm": ">= 10"
+  },
+  "keywords": [
+    "micro",
+    "service",
+    "build",
+    "automation",
+    "minification",
+    "s3",
+    "project"
+  ],
+  "bin": {
+    "ba": "./bin/ba.js"
+  },
+  "man": [
+    "./man/ba-activity.3",    
+    "./man/ba-clean.3",
+    "./man/ba-clone.3",
+    "./man/ba-commit.3",
+    "./man/ba-config.3",
+    "./man/ba-exec.3",
+    "./man/ba-grep.3",
+    "./man/ba-install.3",
+    "./man/ba-morning.3",
+    "./man/ba-ps.3",
+    "./man/ba-pull-docker.3",
+    "./man/ba-pull-git.3",
+    "./man/ba-pull.3",    
+    "./man/ba-run.3",
+    "./man/ba-setup.3",
+    "./man/ba-stop.3",
+    "./man/ba-team.3",
+    "./man/ba-template.3",
+    "./man/ba-upstream.3"
+  ],
+  "directories": {
+    "bin": "./bin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cliftonc/bosco-alt.git"
+  },
+  "author": "clifton.cunningham@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^3.2.0",
+    "bluebird": "^3.7.2",
+    "bosco-core": "^0.2.0",
+    "clean-css": "^4.2.3",
+    "cli-table": "^0.3.1",
+    "colors": "^1.4.0",
+    "dockerode": "^3.2.1",
+    "figlet": "^1.5.0",
+    "fs-extra": "^9.0.1",
+    "glob": "^7.1.6",
+    "handlebars": "^4.7.6",
+    "inquirer": "^7.3.3",
+    "json2csv": "^5.0.5",
+    "lodash": "^4.17.20",
+    "mime": "^2.4.6",
+    "moment": "^2.29.1",
+    "octonode": "^0.9.5",
+    "parse-link-header": "^1.0.1",
+    "pm2": "^4.5.0",
+    "prettyjson": "^1.2.1",
+    "request": "^2.88.2",
+    "semver": "^7.3.2",
+    "sf": "^0.2.0",
+    "symlink": "^2.1.0",
+    "tail": "^2.0.4",
+    "tar-fs": "^2.1.1",
+    "traverse": "^0.6.6",
+    "treeify": "^1.1.0",
+    "tty-table": "^4.1.3",
+    "uglify-js": "^3.12.0",
+    "yargs": "^16.1.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "coveralls": "^3.1.0",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "husky": "^4.3.0",
+    "marked": "^1.2.5",
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0",
+    "remark-man": "^7.0.0",
+    "remark-parse": "^9.0.0",
+    "sinon": "^9.2.1",
+    "to-vfile": "^6.1.0",
+    "unified": "^9.2.0"
+  }
+}

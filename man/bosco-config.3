@@ -1,0 +1,29 @@
+.TH "BOSCO-CONFIG" "3" "December 2020" "" ""
+.SH "NAME"
+\fBbosco-config\fR - Manage (some of) your configuration.
+.SH "SYNOPSIS"
+.P
+.RS 2
+.nf
+bosco config get
+bosco config get <keyName>
+
+bosco config set <keyName> <keyValue>
+.fi
+.RE
+.SH "DESCRIPTION"
+.P
+This command can be used to amend your configuration (instead of manually editing the \fB.bosco/bosco.json\fR file).
+.SH "EXAMPLES"
+.P
+.RS 2
+.nf
+bosco config get
+bosco config get github
+
+bosco config get github:user
+bosco config set github:user cliftonc
+
+bosco config set css:clean:enabled false
+.fi
+.RE

@@ -1,0 +1,20 @@
+{
+  "tags": [ "testy" ],
+  "assets": {
+    "basePath": "/public",
+    "js": {
+      "glob": [
+        "js/**"
+      ]
+    },
+    "css": {}
+  },
+  "files": {
+    "info": {
+      "basePath": "/public",
+      "pdf": [
+        "pdf/guide.pdf"
+      ]
+    }
+  }
+}

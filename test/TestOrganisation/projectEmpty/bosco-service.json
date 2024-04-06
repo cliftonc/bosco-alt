@@ -1,0 +1,16 @@
+{
+  "tags": [ "testy" , "besty" ],
+  "service": {
+    "name": "projectEmpty"
+  },
+  "build": {
+    "command": "echo 'This is the pseudo output of a build command.'"
+  },
+  "files": {
+    "invalid-files": {
+      "ppt": [
+        "flash.ppt"
+      ]
+    }
+  }
+}
