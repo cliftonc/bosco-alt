@@ -23,7 +23,7 @@ It will ask initially for:
 |Github name|Your username|
 |Github Auth Key|A key that gives read access to the repositories in the organization (you can set this up here: https://github.com/blog/1509-personal-api-tokens).|
 
-This is then saved in a configuration file locally on disk, default is in ~/.ba/ba.json, so all subsequent commands use it.
+This is then saved in a configuration file locally on disk, default is in ~/.bosco/bosco.json, so all subsequent commands use it.
 
 It will then ask for a team to start with, and a folder (referred to below as <folder>) to link the team to (it will create it if it doesn't exist).
 
@@ -248,7 +248,7 @@ To create your own BA commands for your project (ones that you don't want to sub
 
 ## Npm Commands
 
-You can create BA commands as npm packages and install it via npm (local or global). These commands must be named ba-command-*command* such as ba-command-ports. BA will try to find such commands as long as they match the naming pattern. This was inspired by [Yeoman generators](http://yeoman.io/authoring/)
+You can create BA commands as npm packages and install it via npm (local or global). These commands must be named bosco-command-*command* such as bosco-command-ports. BA will try to find such commands as long as they match the naming pattern. This was inspired by [Yeoman generators](http://yeoman.io/authoring/)
 
 ### Options and Args in new commands
 
