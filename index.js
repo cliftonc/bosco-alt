@@ -1,4 +1,4 @@
-const Bosco = require('bosco-core');
+const Bosco = require('./src/bosco');
 
 function boscoRun() {
   const bosco = new Bosco(__dirname);
