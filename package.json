@@ -7,7 +7,8 @@
     "lint": "eslint .",
     "test": "nyc mocha",
     "compile-help": "node ./compile-help.js",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "prepare": "husky"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
