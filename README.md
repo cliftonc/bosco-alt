@@ -23,6 +23,10 @@ It will ask initially for:
 |Github name|Your username|
 |Github Auth Key|A key that gives read access to the repositories in the organization (you can set this up here: https://github.com/blog/1509-personal-api-tokens).|
 
+
+> [!NOTE]  
+> If your organisation has SSO enabled, you need to authorise the token with that before your teams will appear.
+
 This is then saved in a configuration file locally on disk, default is in ~/.bosco/bosco.json, so all subsequent commands use it.
 
 It will then ask for a team to start with, and a folder (referred to below as <folder>) to link the team to (it will create it if it doesn't exist).
